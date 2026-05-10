@@ -7,7 +7,7 @@ class Auth {
     // Start session if not started
     public static function init() {
         if (session_status() === PHP_SESSION_NONE) {
-            session_start();
+            // session_start();
         }
     }
     
@@ -62,7 +62,7 @@ class Auth {
     public static function requireLogin() {
         self::init();
         if (!self::isLoggedIn()) {
-            header('Location: /loan-management-system-oop/login.php');
+            header('Location: /JandJLoanApp/login.php');
             exit;
         }
     }
@@ -71,7 +71,7 @@ class Auth {
     public static function requireRole($role) {
         self::requireLogin();
         if ($_SESSION['role'] !== $role && $_SESSION['role'] !== 'admin') {
-            header('Location: /loan-management-system-oop/dashboard.php?error=unauthorized');
+            header('Location: /JandJLoanApp/dashboard.php?error=unauthorized');
             exit;
         }
     }
