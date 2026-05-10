@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Base folder (IMPORTANT: adjust if your folder name changes)
+
+RewriteBase /JandJLoanApp/api/
+
+# If file or folder exists, don't rewrite
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect everything to index.php
+
+RewriteRule ^ index.php [QSA,L]

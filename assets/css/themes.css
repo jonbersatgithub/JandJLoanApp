@@ -1,0 +1,429 @@
+/* ============================================
+   BASE THEME VARIABLES
+   ============================================ */
+
+/* Default Theme (Ocean Blue) */
+:root {
+  /* Primary Colors */
+  --primary-color: #4f46e5;
+  --primary-dark: #4338ca;
+  --primary-light: #818cf8;
+
+  /* Secondary Colors */
+  --secondary-color: #06b6d4;
+  --secondary-dark: #0891b2;
+  --secondary-light: #22d3ee;
+
+  /* Status Colors */
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --info-color: #3b82f6;
+
+  /* Text Colors */
+  --text-dark: #111827;
+  --text-muted: #6b7280;
+  --text-light: #ffffff;
+
+  /* Background Colors */
+  --bg-light: #f3f4f6;
+  --bg-white: #ffffff;
+  --bg-dark: #1f2937;
+
+  /* Border Colors */
+  --border-color: #e5e7eb;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+
+  /* Transitions */
+  --transition-normal: all 0.3s ease;
+
+  /* Border Radius */
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+}
+
+/* Ocean Theme */
+.theme-ocean {
+  --primary-color: #3b82f6;
+  --primary-dark: #2563eb;
+  --primary-light: #60a5fa;
+  --secondary-color: #06b6d4;
+  --gradient-primary: linear-gradient(135deg, #3b82f6, #06b6d4);
+}
+
+/* Forest Theme */
+.theme-forest {
+  --primary-color: #10b981;
+  --primary-dark: #059669;
+  --primary-light: #34d399;
+  --secondary-color: #6ee7b7;
+  --gradient-primary: linear-gradient(135deg, #10b981, #6ee7b7);
+}
+
+/* Sunset Theme */
+.theme-sunset {
+  --primary-color: #f97316;
+  --primary-dark: #ea580c;
+  --primary-light: #fb923c;
+  --secondary-color: #fbbf24;
+  --gradient-primary: linear-gradient(135deg, #f97316, #fbbf24);
+}
+
+/* Royal Theme */
+.theme-royal {
+  --primary-color: #8b5cf6;
+  --primary-dark: #7c3aed;
+  --primary-light: #a78bfa;
+  --secondary-color: #c4b5fd;
+  --gradient-primary: linear-gradient(135deg, #8b5cf6, #c4b5fd);
+}
+
+/* Crimson Theme */
+.theme-crimson {
+  --primary-color: #ef4444;
+  --primary-dark: #dc2626;
+  --primary-light: #f87171;
+  --secondary-color: #fca5a5;
+  --gradient-primary: linear-gradient(135deg, #ef4444, #fca5a5);
+}
+
+/* Teal Theme */
+.theme-teal {
+  --primary-color: #14b8a6;
+  --primary-dark: #0d9488;
+  --primary-light: #5eead4;
+  --secondary-color: #99f6e4;
+  --gradient-primary: linear-gradient(135deg, #14b8a6, #5eead4);
+}
+
+/* Dark Theme */
+.theme-dark {
+  --primary-color: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #818cf8;
+  --secondary-color: #a855f7;
+  --text-dark: #f3f4f6;
+  --text-muted: #9ca3af;
+  --bg-light: #111827;
+  --bg-white: #1f2937;
+  --border-color: #374151;
+  --gradient-primary: linear-gradient(135deg, #6366f1, #a855f7);
+}
+
+/* Pastel Theme */
+.theme-pastel {
+  --primary-color: #c084fc;
+  --primary-dark: #a855f7;
+  --primary-light: #e9d5ff;
+  --secondary-color: #fbcfe8;
+  --success-color: #86efac;
+  --danger-color: #fca5a5;
+  --gradient-primary: linear-gradient(135deg, #c084fc, #fbcfe8);
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom Container */
+.custom-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Custom Card */
+.custom-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  border: 1px solid var(--border-color);
+}
+
+.custom-card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-2px);
+}
+
+/* Stats Card */
+.stat-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  text-align: center;
+  transition: var(--transition-normal);
+  cursor: pointer;
+  border: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Custom Button */
+.btn-custom-primary {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  transition: var(--transition-normal);
+}
+
+.btn-custom-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-active {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-paid {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status-defaulted {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Navigation */
+.custom-navbar {
+  background: var(--gradient-primary) !important;
+  box-shadow: var(--shadow-md);
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: white !important;
+}
+
+.custom-navbar .nav-link:hover {
+  opacity: 0.9;
+}
+
+/* Table Styles */
+.custom-table {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.custom-table thead {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+.custom-table thead th {
+  border: none;
+  padding: 15px;
+}
+
+.custom-table tbody tr:hover {
+  background: var(--bg-light);
+}
+
+/* Modal Styles */
+.custom-modal .modal-content {
+  border-radius: var(--radius-lg);
+  border: none;
+}
+
+.custom-modal .modal-header {
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.custom-modal .modal-header .btn-close {
+  filter: brightness(0) invert(1);
+}
+
+/* Form Controls */
+.form-control-custom {
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 10px 15px;
+  transition: var(--transition-normal);
+}
+
+.form-control-custom:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Welcome Section */
+.welcome-section {
+  background: var(--gradient-primary);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+/* Theme Switcher */
+.theme-switcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.theme-toggle-btn {
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-normal);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+}
+
+.theme-menu {
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 10px;
+  box-shadow: var(--shadow-xl);
+  min-width: 200px;
+  display: none;
+  border: 1px solid var(--border-color);
+}
+
+.theme-menu.show {
+  display: block;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: var(--transition-normal);
+}
+
+.theme-option:hover {
+  background: var(--bg-light);
+}
+
+.theme-color-preview {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid var(--border-color);
+}
+
+.theme-name {
+  flex: 1;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .custom-container {
+    padding: 10px;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .theme-switcher {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .theme-toggle-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Loading Spinner */
+.spinner-custom {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
