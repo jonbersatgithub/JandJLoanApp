@@ -6,14 +6,15 @@ class Auth {
     
     // Start session if not started
     public static function init() {
+        // Session is already started in config.php
+        // No need to call session_start() here
         if (session_status() === PHP_SESSION_NONE) {
-            // session_start();
+            // session_start(); // COMMENTED OUT - session started in config.php
         }
     }
     
     // Login user
     public static function login($user) {
-        self::init();
         $_SESSION[self::$sessionKey] = true;
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
@@ -24,45 +25,38 @@ class Auth {
     
     // Check if user is logged in
     public static function isLoggedIn() {
-        self::init();
         return isset($_SESSION[self::$sessionKey]) && $_SESSION[self::$sessionKey] === true;
     }
     
     // Get current user ID
     public static function getUserId() {
-        self::init();
         return $_SESSION['user_id'] ?? null;
     }
     
     // Get current user role
     public static function getUserRole() {
-        self::init();
         return $_SESSION['role'] ?? null;
     }
     
     // Get current username
     public static function getUsername() {
-        self::init();
         return $_SESSION['username'] ?? null;
     }
     
     // Get current user full name
     public static function getFullName() {
-        self::init();
         return $_SESSION['full_name'] ?? null;
     }
     
     // Logout user
     public static function logout() {
-        self::init();
         session_destroy();
     }
     
     // Require login - redirect if not logged in
     public static function requireLogin() {
-        self::init();
         if (!self::isLoggedIn()) {
-            header('Location: /JandJLoanApp/login.php');
+            header('Location: login.php');
             exit;
         }
     }
@@ -71,7 +65,7 @@ class Auth {
     public static function requireRole($role) {
         self::requireLogin();
         if ($_SESSION['role'] !== $role && $_SESSION['role'] !== 'admin') {
-            header('Location: /JandJLoanApp/dashboard.php?error=unauthorized');
+            header('Location: dashboard.php?error=unauthorized');
             exit;
         }
     }
@@ -88,7 +82,6 @@ class Auth {
     
     // Generate CSRF token
     public static function generateCSRFToken() {
-        self::init();
         if (empty($_SESSION['csrf_token'])) {
             $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         }
@@ -97,7 +90,6 @@ class Auth {
     
     // Verify CSRF token
     public static function verifyCSRFToken($token) {
-        self::init();
         return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
     }
 }
